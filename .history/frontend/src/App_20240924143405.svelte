@@ -319,7 +319,5 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		background-color: #7eafb5;
-		color: #e6e6e6;
 	}
 </style>

@@ -212,12 +212,6 @@
 		border-radius: 1em;
 		width: 75%;
 	}
-	#fixItApp button:hover {
-		background-color: #0e4a45;
-	}
-	#fixItApp button:active {
-		background-color: #0a4440;
-	}
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
@@ -238,15 +232,12 @@
 		overflow: hidden;
 	}
 	.todoLstItmConRight * {
-		display: flex;
-		justify-content: flex-start;
-		align-items: flex-start;
+		
 	}
 	.todoLstItmConRightBtns {
 		display: flex;
 		flex-direction: column;
 		width: 20%;
-		padding: 0.5em;
 	}
 	.todoLstItm {
 		background-color: #415d69;
@@ -319,7 +310,5 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		background-color: #7eafb5;
-		color: #e6e6e6;
 	}
 </style>

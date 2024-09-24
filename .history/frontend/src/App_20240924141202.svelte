@@ -91,99 +91,101 @@
 		</div>
 	</div>
 	<div id="body">
-		<div id="fixItApp">
-			<Modal bind:showModal={showEditModal}>
-				<h2>Edit Todo Item</h2>
-				<form>
-					<input
-						type="text"
-						id="todo-title"
-						bind:value={title}
-						placeholder="Todo title"
-					/>
-					<input
-						type="text"
-						id="todo-description"
-						bind:value={description}
-						placeholder="Todo description"
-					/>
-					<input
-						type="text"
-						id="todo-dueDate"
-						bind:value={dueDate}
-						placeholder="Todo dueDate"
-					/>
+		<div id="content">
+			<div id="fixItApp">
+				<Modal bind:showModal={showEditModal}>
+					<h2>Edit Todo Item</h2>
+					<form>
+						<input
+							type="text"
+							id="todo-title"
+							bind:value={title}
+							placeholder="Todo title"
+						/>
+						<input
+							type="text"
+							id="todo-description"
+							bind:value={description}
+							placeholder="Todo description"
+						/>
+						<input
+							type="text"
+							id="todo-dueDate"
+							bind:value={dueDate}
+							placeholder="Todo dueDate"
+						/>
+						<button
+							on:click={(event) => {
+								editTodo(title, description, dueDate);
+							}}>Edit</button
+						>
+					</form>
+				</Modal>
+				<Modal bind:showModal={showCreateModal}>
+					<h2>Create Todo Item</h2>
+					<form>
+						<input
+							type="text"
+							id="todo-title"
+							bind:value={title}
+							placeholder="Todo title"
+						/>
+						<input
+							type="text"
+							id="todo-description"
+							bind:value={description}
+							placeholder="Todo description"
+						/>
+						<input
+							type="text"
+							id="todo-dueDate"
+							bind:value={dueDate}
+							placeholder="Todo dueDate"
+						/>
+						<button on:click={() => createTodo(title, description, dueDate)}
+							>Create</button
+						>
+					</form>
+				</Modal>
+				<div id="todoList">
 					<button
-						on:click={(event) => {
-							editTodo(title, description, dueDate);
-						}}>Edit</button
+						on:click={() => {
+							showCreateModal = true;
+						}}
+						class="addBtn">Add</button
 					>
-				</form>
-			</Modal>
-			<Modal bind:showModal={showCreateModal}>
-				<h2>Create Todo Item</h2>
-				<form>
-					<input
-						type="text"
-						id="todo-title"
-						bind:value={title}
-						placeholder="Todo title"
-					/>
-					<input
-						type="text"
-						id="todo-description"
-						bind:value={description}
-						placeholder="Todo description"
-					/>
-					<input
-						type="text"
-						id="todo-dueDate"
-						bind:value={dueDate}
-						placeholder="Todo dueDate"
-					/>
-					<button on:click={() => createTodo(title, description, dueDate)}
-						>Create</button
-					>
-				</form>
-			</Modal>
-			<div id="todoList">
-				<button
-					on:click={() => {
-						showCreateModal = true;
-					}}
-					class="addBtn">Add</button
-				>
 
-				<ul id="todos">
-					{#each todos as todo}
-						<li class="todoLstItm">
-							<div class="todoLstItmContLeft">
-								<button
-									on:click={() => deleteTodo(todo.id)}
-									class="completeBtn todoBtn">&#10003;</button
-								>
-							</div>
-							<div class="todoLstItmConRight">
-								<h3 style="padding-inline: 1em; width: 40%;">{todo.title}</h3>
-								<div style="display:flex; flex-direction:column; width: 40% ">
-									<p class="todotxt">{todo.description}</p>
-									<!-- due Date below-->
-									<p class="todotxt">{todo.dueDate}</p>
-								</div>
-								<div class="todoLstItmConRightBtns">
-									<button
-										on:click={() => loadEditPopup(todo.id)}
-										class="deleteBtn todoBtn">&#9998;</button
-									>
+					<ul id="todos">
+						{#each todos as todo}
+							<li class="todoLstItm">
+								<div class="todoLstItmContLeft">
 									<button
 										on:click={() => deleteTodo(todo.id)}
-										class="editBtn todoBtn">&#10006;</button
+										class="completeBtn todoBtn">Done</button
 									>
 								</div>
-							</div>
-						</li>
-					{/each}
-				</ul>
+								<div class="todoLstItmConRight">
+									<h3>{todo.title}</h3>
+									<div style="display:flex; flex-direction:column; width: 30%">
+										<p class="todotxt">{todo.description}</p>
+										<!-- due Date below-->
+										<p class="todotxt">{todo.dueDate}</p>
+									</div>
+									<div class="todoLstItmConRightBtns">
+										<button
+											on:click={() => loadEditPopup(todo.id)}
+											class="deleteBtn todoBtn">Edit</button
+										>
+										<button
+											on:click={() => deleteTodo(todo.id)}
+											class="editBtn todoBtn">X</button
+										>
+									</div>
+								</div>
+							</li>
+						{/each}
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -208,15 +210,8 @@
 	}
 	#fixItApp {
 		border: 2px solid #7ebab5;
-		padding: 1em;
 		border-radius: 1em;
-		width: 75%;
-	}
-	#fixItApp button:hover {
-		background-color: #0e4a45;
-	}
-	#fixItApp button:active {
-		background-color: #0a4440;
+		width: 65vw;
 	}
 	@media (min-width: 640px) {
 		main {
@@ -237,17 +232,6 @@
 		align-items: center;
 		overflow: hidden;
 	}
-	.todoLstItmConRight * {
-		display: flex;
-		justify-content: flex-start;
-		align-items: flex-start;
-	}
-	.todoLstItmConRightBtns {
-		display: flex;
-		flex-direction: column;
-		width: 20%;
-		padding: 0.5em;
-	}
 	.todoLstItm {
 		background-color: #415d69;
 		margin: 0;
@@ -262,17 +246,12 @@
 	.todoLstItmContLeft,
 	.todoLstItmConRight {
 		display: flex;
-		padding: 0.25em;
 	}
 	ul {
 		list-style-type: none;
 	}
 	#body {
-		align-items: flex-start;
-		justify-content: center;
-		display: flex;
-		width: 100vw;
-		padding: 0.125em;
+		background-color: red;
 	}
 	#header,
 	#footer {
@@ -284,17 +263,12 @@
 		background-color: #314d59;
 		border-radius: 0.5em;
 		color: #f6f5f5;
-		width: 100%;
-		height: 25%;
-		padding: 0.25em;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		width: 1.5em;
+		height: 0.5em;
 	}
 	.completeBtn {
 		width: 2.5em;
 		height: 2.5em;
-		padding: 0.25em;
 		border-radius: 2.5em;
 		background-color: #7eafb5;
 		font-size: 100%;
@@ -310,16 +284,5 @@
 	}
 	.popup.open {
 		display: block !important;
-	}
-	#todos {
-		padding-inline-start: 0 !important;
-	}
-	#todos > li {
-		margin: 0.5em;
-	}
-	.addBtn {
-		border-radius: 2em;
-		background-color: #7eafb5;
-		color: #e6e6e6;
 	}
 </style>

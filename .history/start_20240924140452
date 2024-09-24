@@ -1,0 +1,36 @@
+#!/bin# Function to open the default browser
+open_browser() {
+    URL="http://localhost:5000" # Change this to your frontend URL
+
+    if which xdg-open > /dev/null; then
+        xdg-open "$URL"
+    elif which gnome-open > /dev/null; then
+        gnome-open "$URL"
+    elif which open > /dev/null; then
+        open "$URL"
+    elif which start > /dev/null; then
+        start "$URL"
+    else
+        echo "Could not detect the web browser to use."
+    fi
+}
+
+if [ "$1" = "prod" ]; then
+    echo "Starting in production mode..."
+    cd frontend
+    npm run build
+    npm run start &
+    cd ../backend
+    go run main.go todo.go
+    open_browser
+elif [ "$1" = "dev" ]; then
+    echo "Starting in development mode..."
+    cd frontend
+    npm run dev &
+    cd ../backend
+    go run main.go todo.go
+    open_browser
+else
+    echo "Usage: $0 {dev|prod}"
+    exit 1
+fi

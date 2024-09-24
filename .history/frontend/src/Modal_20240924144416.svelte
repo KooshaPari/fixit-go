@@ -41,10 +41,6 @@
 	dialog[open] {
 		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
-	dialog button {
-		border-radius: 2em;
-		background-color: #7ebab5;
-	}
 	@keyframes zoom {
 		from {
 			transform: scale(0.95);

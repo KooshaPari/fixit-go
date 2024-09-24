@@ -160,12 +160,12 @@
 							<div class="todoLstItmContLeft">
 								<button
 									on:click={() => deleteTodo(todo.id)}
-									class="completeBtn todoBtn">&#10003;</button
+									class="completeBtn todoBtn">Done</button
 								>
 							</div>
 							<div class="todoLstItmConRight">
-								<h3 style="padding-inline: 1em; width: 40%;">{todo.title}</h3>
-								<div style="display:flex; flex-direction:column; width: 40% ">
+								<h3>{todo.title}</h3>
+								<div style="display:flex; flex-direction:column; width: 30%">
 									<p class="todotxt">{todo.description}</p>
 									<!-- due Date below-->
 									<p class="todotxt">{todo.dueDate}</p>
@@ -173,11 +173,11 @@
 								<div class="todoLstItmConRightBtns">
 									<button
 										on:click={() => loadEditPopup(todo.id)}
-										class="deleteBtn todoBtn">&#9998;</button
+										class="deleteBtn todoBtn">Edit</button
 									>
 									<button
 										on:click={() => deleteTodo(todo.id)}
-										class="editBtn todoBtn">&#10006;</button
+										class="editBtn todoBtn">X</button
 									>
 								</div>
 							</div>
@@ -212,12 +212,6 @@
 		border-radius: 1em;
 		width: 75%;
 	}
-	#fixItApp button:hover {
-		background-color: #0e4a45;
-	}
-	#fixItApp button:active {
-		background-color: #0a4440;
-	}
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
@@ -237,17 +231,6 @@
 		align-items: center;
 		overflow: hidden;
 	}
-	.todoLstItmConRight * {
-		display: flex;
-		justify-content: flex-start;
-		align-items: flex-start;
-	}
-	.todoLstItmConRightBtns {
-		display: flex;
-		flex-direction: column;
-		width: 20%;
-		padding: 0.5em;
-	}
 	.todoLstItm {
 		background-color: #415d69;
 		margin: 0;
@@ -262,7 +245,6 @@
 	.todoLstItmContLeft,
 	.todoLstItmConRight {
 		display: flex;
-		padding: 0.25em;
 	}
 	ul {
 		list-style-type: none;
@@ -284,17 +266,12 @@
 		background-color: #314d59;
 		border-radius: 0.5em;
 		color: #f6f5f5;
-		width: 100%;
-		height: 25%;
-		padding: 0.25em;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		width: 1.5em;
+		height: 0.5em;
 	}
 	.completeBtn {
 		width: 2.5em;
 		height: 2.5em;
-		padding: 0.25em;
 		border-radius: 2.5em;
 		background-color: #7eafb5;
 		font-size: 100%;
@@ -313,13 +290,8 @@
 	}
 	#todos {
 		padding-inline-start: 0 !important;
-	}
-	#todos > li {
-		margin: 0.5em;
-	}
-	.addBtn {
-		border-radius: 2em;
-		background-color: #7eafb5;
-		color: #e6e6e6;
+		li {
+			margin: 0.25em;
+		}
 	}
 </style>

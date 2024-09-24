@@ -212,11 +212,8 @@
 		border-radius: 1em;
 		width: 75%;
 	}
-	#fixItApp button:hover {
-		background-color: #0e4a45;
-	}
-	#fixItApp button:active {
-		background-color: #0a4440;
+	#fixItApp button:hover 
+	{
 	}
 	@media (min-width: 640px) {
 		main {
@@ -319,7 +316,5 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		background-color: #7eafb5;
-		color: #e6e6e6;
 	}
 </style>

@@ -43,7 +43,7 @@
 	}
 	dialog button {
 		border-radius: 2em;
-		background-color: #7ebab5;
+		background-color
 	}
 	@keyframes zoom {
 		from {

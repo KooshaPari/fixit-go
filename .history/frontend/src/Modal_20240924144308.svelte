@@ -26,11 +26,9 @@
 <style>
 	dialog {
 		max-width: 32em;
-		border-radius: 1em;
+		border-radius: 0.2em;
 		border: none;
-		padding: 1em;
-		background-color: #213f49;
-		color: #e6e6e6;
+		padding: 0;
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.3);
@@ -40,10 +38,6 @@
 	}
 	dialog[open] {
 		animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-	}
-	dialog button {
-		border-radius: 2em;
-		background-color: #7ebab5;
 	}
 	@keyframes zoom {
 		from {

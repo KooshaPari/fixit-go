@@ -164,8 +164,10 @@
 								>
 							</div>
 							<div class="todoLstItmConRight">
-								<h3 style="padding-inline: 1em; width: 40%;">{todo.title}</h3>
-								<div style="display:flex; flex-direction:column; width: 40% ">
+								<h3>{todo.title}</h3>
+								<div style="display:flex; flex-direction:column; width: 30% display: flex;
+flex-direction: column;
+width: 30%;">
 									<p class="todotxt">{todo.description}</p>
 									<!-- due Date below-->
 									<p class="todotxt">{todo.dueDate}</p>
@@ -212,12 +214,6 @@
 		border-radius: 1em;
 		width: 75%;
 	}
-	#fixItApp button:hover {
-		background-color: #0e4a45;
-	}
-	#fixItApp button:active {
-		background-color: #0a4440;
-	}
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
@@ -237,16 +233,10 @@
 		align-items: center;
 		overflow: hidden;
 	}
-	.todoLstItmConRight * {
-		display: flex;
-		justify-content: flex-start;
-		align-items: flex-start;
-	}
 	.todoLstItmConRightBtns {
 		display: flex;
 		flex-direction: column;
-		width: 20%;
-		padding: 0.5em;
+		width: 25%;
 	}
 	.todoLstItm {
 		background-color: #415d69;
@@ -319,7 +309,5 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		background-color: #7eafb5;
-		color: #e6e6e6;
 	}
 </style>
