@@ -1,0 +1,23 @@
+name: Svelte App Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build and deploy
+        run: |
+          cd frontend && npm run build
+          cd ../backend && go mod tidy
+          ./start dev &
+          curl -X POST -H "Content-Type: application/json" -d '{"ref": "main"}' https://api.github.com/repos/KooshaPari/fixit-go/deployments
