@@ -92,10 +92,7 @@
 		</div>
 	</div>
 	<div id="body">
-		<div
-			id="fixItApp"
-			style="overflow-y:auto; overflow-x: hidden; padding: 0.5em;"
-		>
+		<div id="fixItApp" style="overflow-y:auto; padding: 0.5em;">
 			<Modal bind:showModal={showEditModal}>
 				<h2>Edit Todo Item</h2>
 				<form>
@@ -150,18 +147,15 @@
 					>
 				</form>
 			</Modal>
-			<div style="padding:0.25em; position: sticky; top: 0;">
+			<div id="todoList">
 				<button
+					style="p"
 					on:click={() => {
 						showCreateModal = true;
 					}}
 					class="addBtn">Add</button
 				>
-			</div>
-			<div
-				id="todoList"
-				style="background-color:#213f49; width: 100%; height: 100%; padding: 1em; border-radius: 2em 2em 0 0;"
-			>
+
 				<ul id="todos">
 					{#each todos as todo, index}
 						<li
@@ -224,25 +218,16 @@
 		border: 2px solid #7ebab5;
 		padding: 1em;
 		border-radius: 1em;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: flex-start;
-
 		width: 75%;
 		max-height: 65vh;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-		background-color: #212529;
+		background-color: #213f49;
 	}
 	#fixItApp button:hover {
 		background-color: #0e4a45;
-		transform: scale(1.1);
-		transform: translateY(-0.25em);
 	}
 	#fixItApp button:active {
 		background-color: #0a4440;
-		transform: scale(0.9);
-		transform: translateY(-0.125em);
 	}
 	@media (min-width: 640px) {
 		main {
@@ -307,7 +292,9 @@
 		width: 100%;
 		margin: 0;
 	}
-
+	#todoList {
+		overflow-y: auto;
+	}
 	.todoBtn {
 		background-color: #314d59;
 		border-radius: 0.5em;
@@ -318,7 +305,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: transform 0.2s ease-in-out;
 	}
 	.completeBtn {
 		width: 2.5em;
@@ -348,7 +334,6 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		transition: transform 0.2s ease-in-out;
 		background-color: #7eafb5;
 		color: #e6e6e6;
 	}

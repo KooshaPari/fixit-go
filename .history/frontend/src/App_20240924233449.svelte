@@ -234,15 +234,15 @@
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 		background-color: #212529;
 	}
+	#fi
 	#fixItApp button:hover {
 		background-color: #0e4a45;
+		
 		transform: scale(1.1);
-		transform: translateY(-0.25em);
+
 	}
 	#fixItApp button:active {
 		background-color: #0a4440;
-		transform: scale(0.9);
-		transform: translateY(-0.125em);
 	}
 	@media (min-width: 640px) {
 		main {
@@ -318,7 +318,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: transform 0.2s ease-in-out;
 	}
 	.completeBtn {
 		width: 2.5em;
@@ -348,7 +347,6 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		transition: transform 0.2s ease-in-out;
 		background-color: #7eafb5;
 		color: #e6e6e6;
 	}

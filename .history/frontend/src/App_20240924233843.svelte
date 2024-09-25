@@ -236,13 +236,14 @@
 	}
 	#fixItApp button:hover {
 		background-color: #0e4a45;
-		transform: scale(1.1);
+
+		transform: scale(3.1);
 		transform: translateY(-0.25em);
 	}
 	#fixItApp button:active {
 		background-color: #0a4440;
-		transform: scale(0.9);
-		transform: translateY(-0.125em);
+		transform: scale(1.1);
+		transform: translateY(-0.25em);
 	}
 	@media (min-width: 640px) {
 		main {
@@ -348,7 +349,6 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		transition: transform 0.2s ease-in-out;
 		background-color: #7eafb5;
 		color: #e6e6e6;
 	}

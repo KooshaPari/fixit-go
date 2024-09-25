@@ -236,6 +236,7 @@
 	}
 	#fixItApp button:hover {
 		background-color: #0e4a45;
+
 		transform: scale(1.1);
 		transform: translateY(-0.25em);
 	}
@@ -348,7 +349,6 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		transition: transform 0.2s ease-in-out;
 		background-color: #7eafb5;
 		color: #e6e6e6;
 	}

@@ -3,6 +3,7 @@
 	import Modal from "./Modal.svelte";
 	import { prevent_default } from "svelte/internal";
 	import { fly, fade } from "svelte/transition";
+	import { animate } from "svelte/animate";
 	let todos = [];
 	let tempid = -1;
 	onMount(async () => {
@@ -17,6 +18,7 @@
 			console.error("Error fetching todos:", error);
 		}
 	});
+
 	let showCreateModal = false;
 	let showEditModal = false;
 	async function loadEditPopup(id) {
@@ -348,7 +350,6 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		transition: transform 0.2s ease-in-out;
 		background-color: #7eafb5;
 		color: #e6e6e6;
 	}

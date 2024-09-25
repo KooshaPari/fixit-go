@@ -3,6 +3,7 @@
 	import Modal from "./Modal.svelte";
 	import { prevent_default } from "svelte/internal";
 	import { fly, fade } from "svelte/transition";
+	import { animate } from "svelte/animate";
 	let todos = [];
 	let tempid = -1;
 	onMount(async () => {
@@ -17,6 +18,21 @@
 			console.error("Error fetching todos:", error);
 		}
 	});
+
+	let clicked = false;
+
+	function handleClick() {
+		clicked = true;
+		animate({
+			duration: 1000,
+			easing: "ease",
+			css: (t) => {
+				return {
+					transform: `scale(${1 + t * 0.1})`,
+				};
+			},
+		});
+	}
 	let showCreateModal = false;
 	let showEditModal = false;
 	async function loadEditPopup(id) {
@@ -170,9 +186,8 @@
 							out:fade={{ duration: 2000 }}
 						>
 							<div class="todoLstItmContLeft">
-								<button
-									on:click={() => deleteTodo(todo.id)}
-									class="completeBtn todoBtn">&#10003;</button
+								<button on:click={() => handleClick} class="completeBtn todoBtn"
+									>&#10003;</button
 								>
 							</div>
 							<div class="todoLstItmConRight">
@@ -348,7 +363,6 @@
 	}
 	.addBtn {
 		border-radius: 2em;
-		transition: transform 0.2s ease-in-out;
 		background-color: #7eafb5;
 		color: #e6e6e6;
 	}
