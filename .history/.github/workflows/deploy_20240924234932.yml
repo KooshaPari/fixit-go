@@ -17,6 +17,7 @@ jobs:
 
       - name: Build and deploy
         run: |
-          pwd
+          cd frontend && npm run build
+          
           ./start dev &
           curl -X POST -H "Content-Type: application/json" -d '{"ref": "main"}' https://api.github.com/repos/KooshaPari/fixit-go/deployments

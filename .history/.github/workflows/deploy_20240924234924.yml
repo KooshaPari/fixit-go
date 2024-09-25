@@ -13,10 +13,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: cd frontend && npm install && cd ../backend && go mod tidy && cd ..
+        run: cd frontend && npm install
 
       - name: Build and deploy
         run: |
-          pwd
+          cd frontend && npm run build
+          
           ./start dev &
           curl -X POST -H "Content-Type: application/json" -d '{"ref": "main"}' https://api.github.com/repos/KooshaPari/fixit-go/deployments
