@@ -303,9 +303,8 @@
 	#header,
 	#footer {
 		background-color: #213f49;
-		width: 100vw;
-
-		box-sizing: content-box;
+		width: 100%;
+		box
 		margin: 0;
 	}
 

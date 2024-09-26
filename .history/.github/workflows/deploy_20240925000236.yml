@@ -1,0 +1,33 @@
+name: Svelte App Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: cd frontend && npm install && cd ../backend && go build -o gin main.go todo.go && cd ..
+
+      - name: Build and deploy
+        run: |
+          pwd
+          ./start dev &
+         curl -X POST -H "Content-Type: application/json" -d '{"ref": "main"}' https://api.github.com/repos/KooshaPari/fixit-go/deployments
+          echo "http://$(curl -s ifconfig.me):8080" > deployment-url.txt
+
+      - name: Deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            curl -s -o deployment-url.txt https://raw.githubusercontent.com/KooshaPari/fixit-go/main/deployment-url.txt
+            echo "http://$(cat deployment-url.txt)" > deployment-url.txt

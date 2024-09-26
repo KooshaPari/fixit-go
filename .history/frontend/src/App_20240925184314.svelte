@@ -302,10 +302,8 @@
 	}
 	#header,
 	#footer {
-		background-color: #213f49;
-		width: 100vw;
-
-		box-sizing: content-box;
+		background-color: #2;
+		width: 100%;
 		margin: 0;
 	}
 

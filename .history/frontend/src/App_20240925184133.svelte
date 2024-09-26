@@ -163,38 +163,41 @@
 			<div id="todoList" class="fixitHead">
 				<ul id="todos">
 					{#each todos as todo, index}
-						<li
-							class="todoLstItm"
-							in:fly={{ y: 200, duration: 2000, delay: index * 100 }}
-							out:fly={{ x: 200, duration: 2000 }}
-						>
-							<div class="todoLstItmContLeft">
-								<button
-									on:click={() => deleteTodo(todo.id)}
-									class="completeBtn todoBtn">&#10003;</button
-								>
-							</div>
-							<div class="todoLstItmConRight">
-								<h3 style="padding-inline: 1em; font-size: 0.75em; width: 40%;">
-									{todo.title}
-								</h3>
-								<div style="display:flex; flex-direction:column; width: 40% ">
-									<p class="todotxt">{todo.description}</p>
-									<!-- due Date below-->
-									<p class="todotxt">{todo.dueDate}</p>
-								</div>
-								<div class="todoLstItmConRightBtns">
-									<button
-										on:click={() => loadEditPopup(todo.id)}
-										class="deleteBtn todoBtn">&#9998;</button
-									>
+						<div out:fly={{ x: 200, duration: 2000 }}>
+							<li
+								class="todoLstItm"
+								in:fly={{ y: 200, duration: 2000, delay: index * 100 }}
+							>
+								<div class="todoLstItmContLeft">
 									<button
 										on:click={() => deleteTodo(todo.id)}
-										class="editBtn todoBtn">&#10006;</button
+										class="completeBtn todoBtn">&#10003;</button
 									>
 								</div>
-							</div>
-						</li>
+								<div class="todoLstItmConRight">
+									<h3
+										style="padding-inline: 1em; font-size: 0.75em; width: 40%;"
+									>
+										{todo.title}
+									</h3>
+									<div style="display:flex; flex-direction:column; width: 40% ">
+										<p class="todotxt">{todo.description}</p>
+										<!-- due Date below-->
+										<p class="todotxt">{todo.dueDate}</p>
+									</div>
+									<div class="todoLstItmConRightBtns">
+										<button
+											on:click={() => loadEditPopup(todo.id)}
+											class="deleteBtn todoBtn">&#9998;</button
+										>
+										<button
+											on:click={() => deleteTodo(todo.id)}
+											class="editBtn todoBtn">&#10006;</button
+										>
+									</div>
+								</div>
+							</li>
+						</div>
 					{/each}
 				</ul>
 			</div>
@@ -214,7 +217,7 @@
 	}
 
 	h1 {
-		color: #7ebab5;
+		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
@@ -303,9 +306,7 @@
 	#header,
 	#footer {
 		background-color: #213f49;
-		width: 100vw;
-
-		box-sizing: content-box;
+		width: 100%;
 		margin: 0;
 	}
 

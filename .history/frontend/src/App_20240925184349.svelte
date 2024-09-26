@@ -304,7 +304,6 @@
 	#footer {
 		background-color: #213f49;
 		width: 100vw;
-
 		box-sizing: content-box;
 		margin: 0;
 	}

@@ -150,9 +150,7 @@
 					>
 				</form>
 			</Modal>
-			<div
-				style="padding:0.5em;  background-color:#112f39; box-sizing: content-box; width: 100%; height: 100%; position: sticky; top: 0;"
-			>
+			<div style="padding:0.25em; position: sticky; top: 0;">
 				<button
 					on:click={() => {
 						showCreateModal = true;
@@ -160,13 +158,16 @@
 					class="addBtn">Add</button
 				>
 			</div>
-			<div id="todoList" class="fixitHead">
+			<div
+				id="todoList"
+				style="background-color:#213f49; width: 100%; height: 100%; padding: 1em; padding-bottom: 15%; border-radius: 2em 2em 2em 2em;"
+			>
 				<ul id="todos">
 					{#each todos as todo, index}
 						<li
 							class="todoLstItm"
 							in:fly={{ y: 200, duration: 2000, delay: index * 100 }}
-							out:fly={{ x: 200, duration: 2000 }}
+							out:fade={{ duration: 2000 }}
 						>
 							<div class="todoLstItmContLeft">
 								<button
@@ -214,14 +215,14 @@
 	}
 
 	h1 {
-		color: #7ebab5;
+		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
 	}
 	#fixItApp {
 		border: 2px solid #7ebab5;
-		padding: 0 !important;
+		padding: 1em;
 		border-radius: 1em;
 		display: flex;
 		flex-direction: column;
@@ -303,9 +304,7 @@
 	#header,
 	#footer {
 		background-color: #213f49;
-		width: 100vw;
-
-		box-sizing: content-box;
+		width: 100%;
 		margin: 0;
 	}
 
@@ -352,14 +351,5 @@
 		transition: transform 0.2s ease-in-out;
 		background-color: #7eafb5;
 		color: #e6e6e6;
-	}
-	.fixitHead {
-		background-color: #213f49;
-		width: 100%;
-		box-sizing: content-box;
-		height: 100%;
-		padding: 1em;
-		padding-bottom: 20%;
-		border-radius: 2em 2em 2em 2em;
 	}
 </style>

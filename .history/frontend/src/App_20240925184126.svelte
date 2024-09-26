@@ -166,7 +166,7 @@
 						<li
 							class="todoLstItm"
 							in:fly={{ y: 200, duration: 2000, delay: index * 100 }}
-							out:fly={{ x: 200, duration: 2000 }}
+							
 						>
 							<div class="todoLstItmContLeft">
 								<button
@@ -214,7 +214,7 @@
 	}
 
 	h1 {
-		color: #7ebab5;
+		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
@@ -303,9 +303,7 @@
 	#header,
 	#footer {
 		background-color: #213f49;
-		width: 100vw;
-
-		box-sizing: content-box;
+		width: 100%;
 		margin: 0;
 	}
 
